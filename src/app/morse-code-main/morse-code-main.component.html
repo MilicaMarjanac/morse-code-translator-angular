@@ -1,0 +1,21 @@
+<div class="container">
+  <h2>Text to Morse</h2>
+  <textarea #inputValue placeholder="Type your text here..." (keyup)="translatorInit()"></textarea>
+  <div class="translator">
+    {{code}}
+  </div>
+  <div class="controls">
+    <div class="dropdown">
+      <label>WPM:</label>
+      <select (change)="chooseDropdownItem($event)">
+        <option *ngFor="let item of dropdownItems">
+          {{item}}
+        </option>
+      </select>
+    </div>
+    <div class="buttons">
+      <button (click)="submit()" [disabled]="isPlaying">Play sound</button>
+      <button (click)="clear()" [disabled]="isClear">Clear</button>
+    </div>
+  </div>
+</div>
